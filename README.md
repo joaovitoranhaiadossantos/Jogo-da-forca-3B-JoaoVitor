@@ -5,7 +5,7 @@ Este repositório contém a versão aprimorada do Jogo da Forca em Python. A est
 
 ## Alterações Realizadas
 
-### 1. Organização por Temas
+### Organização por Temas
 A lista linear de palavras única foi substituída por um **dicionário em Python (`dict`)**. Essa estrutura permitiu mapear categorias específicas (chaves) para suas respectivas listas de palavras (valores).
 
 Os temas implementados foram:
@@ -14,17 +14,11 @@ Os temas implementados foram:
 * **Jogos:** Termos do universo dos games.
 * **Filmes:** Elementos da indústria cinematográfica.
 
-### 2. Sorteio Aleatório Duplo
+### Sorteio Aleatório Duplo
 A função `escolher_palavra()` foi reformulada para:
 1.  Selecionar aleatoriamente um dos temas disponíveis no dicionário.
 2.  Selecionar uma palavra aleatória pertencente exclusivamente ao tema escolhido.
 3.  Retornar tanto a **palavra** quanto o **tema** para o fluxo do jogo.
 
-### 3. Exibição de Dicas na Interface
-Para melhorar a experiência do usuário (UX), o jogo agora exibe uma dica logo no início da partida, informando qual é o tema da palavra secreta:
-```text
-========================================
-        JOGO DA FORCA - PYTHON
-========================================
-DICA: O tema da palavra é -> TECNOLOGIA
-Você tem 6 vidas.
+### Exibição de Dicas na Interface
+Para melhorar a experiência do usuário (UX), o jogo agora exibe uma dica logo no início da partida, informando qual é o tema da palavra secreta
