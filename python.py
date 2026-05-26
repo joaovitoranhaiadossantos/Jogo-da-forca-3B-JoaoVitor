@@ -1,61 +1,45 @@
-# ============================================================
-# JOGO DA FORCA - VERSÃO BASE PARA APRIMORAMENTO DOS ALUNOS
-# Disciplina: Programação no Desenvolvimento de Sistemas
-# Turma: 3º Ano do Ensino Médio Técnico
-# ============================================================
-
 import random
 
-# Lista inicial de palavras
-# MISSÃO DOS ALUNOS:
-# - Adicionar mais palavras
-# - Separar por temas: jogos, tecnologia, escola, filmes etc.
-palavras = [
-    "python",
-    "programacao",
-    "sistema",
-    "algoritmo",
-    "teclado",
-    "internet",
-    "computador",
-    "desenvolvedor",
-    "software",
-    "terminal"
-    "hardware"
-    "software"
-    "linguagem"
-    "teclado"
-    "monitor"
-    
-]
+#MISSÃO DOS ALUNOS CONCLUÍDA: 
+#Adicionar mais palavras
+#Palavras separadas por temas usando Dicionário
+palavras_por_tema = {
+    "tecnologia": ["python", "programacao", "sistema", "algoritmo", "teclado", "internet", "computador", "hardware", "software", "monitor"],
+    "escola": ["professor", "aluno", "caderno", "caneta", "biblioteca", "aula", "prova"],
+    "jogos": ["controle", "console", "aventura", "plataforma", "estrategia", "ranking"],
+    "filmes": ["cinema", "diretor", "roteiro", "comedia", "drama", "animacao"]
+}
 
 def escolher_palavra():
-    """Escolhe uma palavra aleatória da lista."""
-    return random.choice(palavras)
+    """Escolhe um tema e uma palavra aleatória dentro desse tema."""
+    # Sorteia um tema do dicionário
+    tema = random.choice(list(palavras_por_tema.keys()))
+    # Sorteia uma palavra dentro do tema escolhido
+    palavra = random.choice(palavras_por_tema[tema])
+    return palavra, tema
 
 def mostrar_palavra(palavra, letras_acertadas):
     """Mostra a palavra com as letras já acertadas."""
     resultado = ""
-
     for letra in palavra:
         if letra in letras_acertadas:
             resultado += letra + " "
         else:
             resultado += "_ "
-
     return resultado
 
 def jogar():
-    palavra_secreta = escolher_palavra()
+    # Agora a função retorna a palavra E o tema sorteado
+    palavra_secreta, tema_da_rodada = escolher_palavra()
     letras_acertadas = []
     letras_tentadas = []
     vidas = 6
     pontos = 0
 
     print("=" * 40)
-    print("        JOGO DA FORCA - PYTHON")
+    print("JOGO DA FORCA - PYTHON")
     print("=" * 40)
-    print("Descubra a palavra secreta!")
+    print(f"DICA: O tema da palavra é -> {tema_da_rodada.upper()}")
     print("Você tem", vidas, "vidas.")
     print()
 
@@ -99,7 +83,6 @@ def jogar():
 
         # Verifica se o jogador venceu
         venceu = True
-
         for letra_da_palavra in palavra_secreta:
             if letra_da_palavra not in letras_acertadas:
                 venceu = False
